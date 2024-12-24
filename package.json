@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@formkit/tempo": "^0.1.2",
+    "cropperjs": "^1.6.2"
+  }
+}

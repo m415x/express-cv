@@ -2,6 +2,7 @@ import { initializeFormHandlers, captureFormData } from './formHandler.js'
 import { translatePage, translations } from './translations.js'
 import { saveFormData, restoreFormData } from './storage.js'
 import { initializeImageCropper } from './imageHandler.js'
+import { format } from '../node_modules/@formkit/tempo/dist/index.mjs'
 
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
@@ -49,7 +50,7 @@ export function updatePreview(data, dataURL) {
     const language = localStorage.getItem('selectedLanguage') || 'en'
 
     // Generar la vista previa del CV incluyendo la imagen si está disponible
-    preview.innerHTML = `
+    preview.innerHTML = /* HTML */`
     <div class="profile-container">
         ${dataURL ? `<img src="${dataURL}" alt="Profile Photo" class="profile-photo">` : ''}
 
@@ -97,18 +98,18 @@ export function updatePreview(data, dataURL) {
                 experienceItem.classList.add("experience-list-item")
 
                 // Crear la estructura de cada experiencia en la lista
-                experienceItem.innerHTML = `
+                experienceItem.innerHTML = /* HTML */`
                     <h4>
                         ${exp.jobTitle || ''}
                     </h4>
 
                     <p>
                         <span class="preview-dates">
-                            ${exp.startDate ? formatDateToMMMYYYY(exp.startDate, language) : ''} 
+                            ${exp.startDate ? format(exp.startDate, "MMM YY", language) : ''} 
                             ${exp.startDate && (exp.endDate || exp.currentJob) ? ' - ' : ''} 
                             ${exp.currentJob ?
                         "<span class='current-job'>Current Job</span>" :
-                        (exp.endDate ? formatDateToMMMYYYY(exp.endDate, language) : '')} 
+                        (exp.endDate ? format(exp.endDate, "MMM YY", language) : '')} 
                         </span>
                         
                         ${exp.startDate || exp.endDate || exp.currentJob ? ' | ' : ''} 
@@ -156,18 +157,18 @@ export function updatePreview(data, dataURL) {
                 educationItem.classList.add("education-list-item")
 
                 // Crear la estructura de cada educación en la lista
-                educationItem.innerHTML = `
+                educationItem.innerHTML = /* HTML */`
                     <h4>
                         ${edu.degree || ''}
                     </h4>
 
                     <p>
                         <span class="preview-dates">
-                            ${edu.startDate ? formatDateToMMMYYYY(edu.startDate, language) : ''} 
+                            ${edu.startDate ? format(edu.startDate, "MMM YY", language) : ''} 
                             ${edu.startDate && (edu.endDate || edu.currentStudy) ? '-' : ''} 
                             ${edu.currentStudy ?
                         "<span class='current-study'>Currently studying</span>" :
-                        (edu.endDate ? formatDateToMMMYYYY(edu.endDate, language) : '')} 
+                        (edu.endDate ? format(edu.endDate, "MMM YY", language) : '')} 
                         </span>
                             
                         ${edu.startDate || edu.endDate || edu.currentStudy ? ' | ' : ''}  
@@ -188,19 +189,6 @@ export function updatePreview(data, dataURL) {
         previewEducation.appendChild(educationList)
     }
 }
-
-function formatDateToMMMYYYY(dateString, language) {
-    const [year, month] = dateString.split('-') // Extraer año y mes del formato YYYY-MM
-    const monthNumber = parseInt(month, 10) // Convertir el mes a número
-
-    // Buscar la traducción del mes en el idioma especificado
-    const monthString = translations[language] && translations[language][monthNumber]
-        ? translations[language][monthNumber] // Usar la traducción correspondiente
-        : translations['en'][monthNumber] // Si no hay traducción, usar inglés por defecto
-
-    return `${monthString} ${year}` // Devolver el mes abreviado y el año
-}
-
 
 /*
 document.addEventListener("DOMContentLoaded", () => {

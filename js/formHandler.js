@@ -99,7 +99,7 @@ export function addExperienceField() {
     const experienceCount = $$("#experience-section .experience-item").length + 1 // Contar las experiencias actuales
     const newExperience = document.createElement('div')
     newExperience.classList.add("experience-item")
-    newExperience.innerHTML = `
+    newExperience.innerHTML = /* HTML */`
         <h3>
             <span class="experience-subtitle">Experience</span> ${experienceCount}
         </h3>
@@ -163,7 +163,7 @@ export function addEducationField() {
     const educationCount = $$("#education-section .education-item").length + 1 // Contar las educaciones actuales
     const newEducation = document.createElement('div')
     newEducation.classList.add("education-item")
-    newEducation.innerHTML = `
+    newEducation.innerHTML = /* HTML */`
         <h3>
             <span class="education-subtitle">Education</span> ${educationCount}
         </h3>

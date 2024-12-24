@@ -18,15 +18,15 @@
         <link rel="canonical" href="https://">
 
         <meta name="robots" content="index, follow">
-        <meta name="theme-color" content="#0fe">
+        <!-- <meta name="theme-color" content="#0fe"> -->
         <meta name="google" content="notranslate" />
 
         <link rel="icon" type="image/jpg" href="assets/images/icon.jpeg">
 
-        <!-- <link rel="stylesheet" href="css/reset.css"> -->
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/harvard-theme.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="node_modules/cropperjs/dist/cropper.css">
     </head>
 
     <body>
@@ -34,6 +34,15 @@
             <aside class="sidebar">
                 <header>
                     <h1>Express CV</h1>
+
+                    <!-- <div class="language-selector">
+                        <select id="languageSelect" aria-label="Choose Language">
+                            <option value="en">En</option>
+                            <option value="es">Es</option>
+                            <option value="fr">Fr</option>
+                            <option value="pt">Pt</option>
+                        </select>
+                    </div> -->
                 </header>
 
                 <form id="cv-form">
@@ -69,7 +78,7 @@
                             <input type="file" name="picture" id="upload-image" accept="image/*">
                         </label>
 
-                        <div id="image-modal" style="display: none;">
+                        <div id="image-modal">
                             <div id="image-container">
                                 <img id="image-preview" alt="Image preview">
 
@@ -191,19 +200,6 @@
             </aside>
 
             <main class="preview">
-                <header>
-                    <h2 class="previewTitle">CV Preview</h2>
-                </header>
-
-                <div class="language-selector">
-                    <select id="languageSelect" aria-label="Choose Language">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="pt">Português</option>
-                    </select>
-                </div>
-
                 <div class="cv-preview-frame">
                     <section class="cv-preview-container">
                         <article id="profile-preview">
@@ -220,14 +216,14 @@
                     </section>
                 </div>
 
-                <button id="export-pdf" hidden>Export to PDF</button>
+                <button id="export-pdf" disabled>Export to PDF</button>
             </main>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
-        <script src="js/main.js" type="module"></script>
-        <script src="js/formHandler.js" type="module"></script>
-        <script src="js/imageHandler.js" type="module"></script>
+        <script src="node_modules/cropperjs/dist/cropper.js"></script>
+        <script type="module" src="js/main.js"></script>
+        <script type="module" src="js/formHandler.js"></script>
+        <script type="module" src="js/imageHandler.js"></script>
         <!-- <script src="js/pdfExporter.js"></script> -->
     </body>
 
