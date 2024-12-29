@@ -1,5 +1,3 @@
-import { translateMessage } from "./translations.js"
-
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
 
@@ -90,7 +88,8 @@ function areExperienceFieldsComplete() {
 // Función para agregar nuevos campos de experiencia
 export function addExperienceField() {
     if (!areExperienceFieldsComplete()) {
-        const message = translateMessage('experienceIncomplete')
+        // const message = translateMessage('experienceIncomplete')
+        const message = 'Please complete the experience fields before adding a new one.'
         alert(message)
         return
     }
@@ -154,7 +153,8 @@ function areEducationFieldsComplete() {
 // Función para agregar nuevos campos de educación
 export function addEducationField() {
     if (!areEducationFieldsComplete()) {
-        const message = translateMessage('educationIncomplete')
+        // const message = translateMessage('educationIncomplete')
+        const message = 'Please complete the education fields before adding a new one.'
         alert(message)
         return
     }

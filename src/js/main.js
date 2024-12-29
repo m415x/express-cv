@@ -1,8 +1,7 @@
 import { initializeFormHandlers, captureFormData } from './formHandler.js'
-import { translatePage, translations } from './translations.js'
 import { saveFormData, restoreFormData } from './storage.js'
 import { initializeImageCropper } from './imageHandler.js'
-import { format } from '../node_modules/@formkit/tempo/dist/index.mjs'
+import { formatMonthYear } from '../utils/dateFormatter.js'
 
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
@@ -17,17 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Restaurar los datos cuando la página se carga
     window.addEventListener('load', restoreFormData)
 
-    const languageSelect = $("#languageSelect")
-    // Escuchar cambios en el select de idioma
-    languageSelect.addEventListener("change", () => {
-        const selectedLanguage = languageSelect.value
+    // const languageSelect = $("#languageSelect")
+    // // Escuchar cambios en el select de idioma
+    // languageSelect.addEventListener("change", () => {
+    //     const selectedLanguage = languageSelect.value
 
-        // Guardar el idioma seleccionado en localStorage
-        localStorage.setItem("selectedLanguage", selectedLanguage)
+    //     // Guardar el idioma seleccionado en localStorage
+    //     localStorage.setItem("selectedLanguage", selectedLanguage)
 
-        // Traducir la página
-        translatePage(selectedLanguage)
-    })
+    //     // Traducir la página
+    //     translatePage(selectedLanguage)
+    // })
 
     // Actualizar los datos del formulario cuando el usuario interactúa con el formulario
     $("#cv-form").addEventListener("input", () => {
@@ -98,6 +97,29 @@ export function updatePreview(data, dataURL) {
                 experienceItem.classList.add("experience-list-item")
 
                 // Crear la estructura de cada experiencia en la lista
+                // experienceItem.innerHTML = /* HTML */`
+                //     <h4>
+                //         ${exp.jobTitle || ''}
+                //     </h4>
+
+                //     <p>
+                //         <span class="preview-dates">
+                //             ${exp.startDate ? format(exp.startDate, "MMM YY", language) : ''} 
+                //             ${exp.startDate && (exp.endDate || exp.currentJob) ? ' - ' : ''} 
+                //             ${exp.currentJob ?
+                //         "<span class='current-job'>Current Job</span>" :
+                //         (exp.endDate ? format(exp.endDate, "MMM YY", language) : '')} 
+                //         </span>
+
+                //         ${exp.startDate || exp.endDate || exp.currentJob ? ' | ' : ''} 
+
+                //         <strong>${exp.company || ''}</strong>
+                //     </p>
+
+                //     <p>
+                //         ${exp.description || ''}
+                //     </p>
+                // `
                 experienceItem.innerHTML = /* HTML */`
                     <h4>
                         ${exp.jobTitle || ''}
@@ -105,11 +127,11 @@ export function updatePreview(data, dataURL) {
 
                     <p>
                         <span class="preview-dates">
-                            ${exp.startDate ? format(exp.startDate, "MMM YY", language) : ''} 
+                            ${exp.startDate ? formatMonthYear(exp.startDate, language) : ''} 
                             ${exp.startDate && (exp.endDate || exp.currentJob) ? ' - ' : ''} 
                             ${exp.currentJob ?
                         "<span class='current-job'>Current Job</span>" :
-                        (exp.endDate ? format(exp.endDate, "MMM YY", language) : '')} 
+                        (exp.endDate ? formatMonthYear(exp.endDate, language) : '')} 
                         </span>
                         
                         ${exp.startDate || exp.endDate || exp.currentJob ? ' | ' : ''} 
@@ -157,6 +179,29 @@ export function updatePreview(data, dataURL) {
                 educationItem.classList.add("education-list-item")
 
                 // Crear la estructura de cada educación en la lista
+                // educationItem.innerHTML = /* HTML */`
+                //     <h4>
+                //         ${edu.degree || ''}
+                //     </h4>
+
+                //     <p>
+                //         <span class="preview-dates">
+                //             ${edu.startDate ? format(edu.startDate, "MMM YY", language) : ''} 
+                //             ${edu.startDate && (edu.endDate || edu.currentStudy) ? '-' : ''} 
+                //             ${edu.currentStudy ?
+                //         "<span class='current-study'>Currently studying</span>" :
+                //         (edu.endDate ? format(edu.endDate, "MMM YY", language) : '')} 
+                //         </span>
+
+                //         ${edu.startDate || edu.endDate || edu.currentStudy ? ' | ' : ''}  
+
+                //         <strong>${edu.institution || ''}</strong>
+                //     </p>
+
+                //     <p>
+                //         ${edu.description || ''}
+                //     </p>
+                //     `
                 educationItem.innerHTML = /* HTML */`
                     <h4>
                         ${edu.degree || ''}
@@ -164,11 +209,11 @@ export function updatePreview(data, dataURL) {
 
                     <p>
                         <span class="preview-dates">
-                            ${edu.startDate ? format(edu.startDate, "MMM YY", language) : ''} 
+                            ${edu.startDate ? formatMonthYear(edu.startDate, language) : ''} 
                             ${edu.startDate && (edu.endDate || edu.currentStudy) ? '-' : ''} 
                             ${edu.currentStudy ?
                         "<span class='current-study'>Currently studying</span>" :
-                        (edu.endDate ? format(edu.endDate, "MMM YY", language) : '')} 
+                        (edu.endDate ? formatMonthYear(edu.endDate, language) : '')} 
                         </span>
                             
                         ${edu.startDate || edu.endDate || edu.currentStudy ? ' | ' : ''}  

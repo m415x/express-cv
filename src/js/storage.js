@@ -1,6 +1,5 @@
 import { updatePreview } from './main.js'
 import { captureFormData } from './formHandler.js'
-import { translatePage } from './translations.js'
 
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
@@ -148,11 +147,11 @@ export function restoreFormData() {
     }
     updatePreview(captureFormData(), localStorage.getItem('profileImage'))
 
-    const languageSelect = $("#languageSelect")
+    // const languageSelect = $("#languageSelect")
 
     // Cargar el idioma seleccionado desde localStorage
-    const savedLanguage = localStorage.getItem("selectedLanguage") || navigator.language || 'en'
-    languageSelect.value = savedLanguage
+    // const savedLanguage = localStorage.getItem("selectedLanguage") || navigator.language || 'en'
+    // languageSelect.value = savedLanguage
 
-    translatePage(savedLanguage)
+    // translatePage(savedLanguage)
 }

@@ -1,4 +1,4 @@
-# CV Builder Web Application
+# Express CV Web Application
 
 A web application for creating custom resumes using HTML, CSS, and JavaScript. This project allows users to input their information through a form and generate a personalized CV from selectable templates, with the option to export the final result as a PDF.
 
@@ -14,7 +14,7 @@ A web application for creating custom resumes using HTML, CSS, and JavaScript. T
 ## Project Structure
 
 ```text
-cv-builder/
+express-cv/
 ├── index.html
 ├── css/
 │   ├── styles.css
@@ -58,8 +58,8 @@ Make sure you have the following installed on your local machine:
 1. **Clone the repository**:
 
    ```sh
-   git clone https://github.com/your-username/cv-builder.git
-   cd cv-builder
+   git clone https://github.com/m415x/express-cv.git
+   cd express-cv
    ```
 
 2. **Open the project**:
