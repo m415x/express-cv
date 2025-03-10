@@ -239,12 +239,29 @@ button {
 
 .cv-preview-container {
     width: 210mm;
-    height: 297mm;
+    min-height: 297mm;
+    /* Tamaño A4 */
     padding: 30px;
     box-sizing: border-box;
     border: 1px solid var(--border);
     background-color: var(--background);
     margin: 0 auto;
+    overflow: hidden;
+}
+
+.cv-page {
+    min-height: 297mm;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    page-break-after: always;
+    /* Salto de página en impresión */
+}
+
+.cv-page:last-child {
+    page-break-after: auto;
 }
 
 #export-pdf {

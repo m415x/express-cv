@@ -181,12 +181,12 @@ export function addEducationField() {
         <div class="inputs-date">
             <label for="edu-start-date[]" class="inline-label">
                 <span>Start date</span>:
-                <input type="month" name="edu-end-date[]" class="inline-input">
+                <input type="month" name="edu-start-date[]" class="inline-input">
             </label>
 
             <label for="edu-end-date[]" class="inline-label">
                 <span>End date</span>:
-                <input type="month" name="edu-start-date[]" class="inline-input">
+                <input type="month" name="edu-end-date[]" class="inline-input">
             </label>
 
             <label for="current-study[]">

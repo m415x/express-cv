@@ -1,47 +1,29 @@
-/* Estilos para el preview general del CV */
-#profile-preview {
-    margin-bottom: 20px;
-}
-
-/* Contenedor para la imagen del perfil y el nombre */
-#profile-preview .profile-container {
+.cv-page .profile-container {
     display: flex;
     align-items: center;
-    /* Alinea verticalmente la imagen y el texto */
     margin-bottom: 20px;
-    /* Espacio debajo del contenedor */
 }
 
-/* Imagen del perfil */
-#profile-preview .profile-photo {
+.cv-page .profile-photo {
     border-radius: 50%;
     width: 150px;
-    /* Tamaño de la imagen del perfil */
     height: 150px;
-    /* Tamaño de la imagen del perfil */
     margin-right: 50px;
-    /* Espacio entre la imagen y el texto */
 }
 
-/* Nombre del perfil */
-#profile-preview .profile-info {
+.cv-page .profile-info {
     flex: 1;
-    /* Ocupa el espacio restante */
 }
 
-#profile-preview h3 {
+.cv-page h3 {
     font-size: 2em;
     color: #003d66;
     margin: 0;
-    /* Elimina el margen por defecto */
 }
 
-/* Estilos para la sección de experiencia */
-#preview-experience {
-    margin-bottom: 20px;
-}
-
-#preview-experience h3 {
+/* Secciones de experiencia y educación */
+.cv-page .experience-preview,
+.cv-page .education-preview {
     font-size: 1.5em;
     color: #003d66;
     border-bottom: 2px solid #003d66;
@@ -49,34 +31,15 @@
     margin-bottom: 10px;
 }
 
-/* Estilos para la sección de educación */
-#preview-education {
-    margin-bottom: 20px;
+.experience-list-item::marker,
+.education-list-item::marker {
+    content: none;
+    display: none;
 }
 
-#preview-education h3 {
-    font-size: 1.5em;
-    color: #003d66;
-    border-bottom: 2px solid #003d66;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-/* Estilos opcionales para elementos dentro de las secciones */
-#preview-experience .experience-list-item,
-#preview-education .education-list-item {
-    margin-bottom: 12px;
-    /* list-style: none; */
-}
-
-#preview-experience .experience-list-item h4,
-#preview-education .education-list-item h4 {
+.cv-page .experience-list-item h4,
+.cv-page .education-list-item h4 {
     font-size: 1.2em;
     color: #003d66;
     margin-bottom: 12px;
-}
-
-#preview-experience .experience-list-item p,
-#preview-education .education-list-item p {
-    margin: 5px 0;
 }
