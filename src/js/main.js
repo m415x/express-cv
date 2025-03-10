@@ -2,6 +2,7 @@ import { initializeFormHandlers, captureFormData } from './formHandler.js'
 import { saveFormData, restoreFormData } from './storage.js'
 import { initializeImageCropper } from './imageHandler.js'
 import { formatMonthYear } from '../utils/dateFormatter.js'
+import { formatText } from "../utils/formatText.js"
 
 const $ = el => document.querySelector(el)
 const $$ = el => document.querySelectorAll(el)
@@ -62,7 +63,7 @@ export function updatePreview(data, dataURL) {
     </div>
 
     <div class="summary-container">
-        <p>${data.summary || ""}</p>
+        <p>${formatText(data.summary || "")}</p>
     </div>
     `
 
@@ -138,9 +139,7 @@ export function updatePreview(data, dataURL) {
 
                         <strong>${exp.company || ''}</strong>
                     </p>
-
-                    <p>
-                        ${exp.description || ''}
+                        ${formatText(exp.description || '')}
                     </p>
                 `
 
@@ -222,7 +221,7 @@ export function updatePreview(data, dataURL) {
                     </p>
 
                     <p>
-                        ${edu.description || ''}
+                        ${formatText(edu.description || '')}
                     </p>
                     `
 
