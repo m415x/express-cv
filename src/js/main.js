@@ -72,7 +72,7 @@ export function updatePreview(data, dataURL) {
     profileSection.innerHTML = `
         ${dataURL ? `<img src="${dataURL}" alt="Profile Photo" class="profile-photo">` : ""}
         <div class="profile-info">
-            <h3>${data.name || ""}</h3>
+            <h2>${data.name || ""}</h2>
             <p>
                 <a 
                     href="mailto:${data.email}" 
@@ -88,16 +88,24 @@ export function updatePreview(data, dataURL) {
 
     // **Resumen Profesional**
     if (data.summary) {
+        const summaryHeader = document.createElement("h2")
+        summaryHeader.classList.add("summary-preview")
+        summaryHeader.classList.add("editableHeader")
+        summaryHeader.textContent = "Summary"
+        addToPage(summaryHeader)
+
         const summarySection = document.createElement("div")
         summarySection.classList.add("summary-container")
+        summarySection.classList.add("editableBody")
         summarySection.innerHTML = `<p>${formatText(data.summary || "")}</p>`
         addToPage(summarySection)
     }
 
     // **Experiencia**
     if (data.experience.length > 0) {
-        const experienceHeader = document.createElement("h3")
+        const experienceHeader = document.createElement("h2")
         experienceHeader.classList.add("experience-preview")
+        experienceHeader.classList.add("editableHeader")
         experienceHeader.textContent = "Experience"
         addToPage(experienceHeader)
 
@@ -109,7 +117,7 @@ export function updatePreview(data, dataURL) {
                 const experienceItem = document.createElement("li")
                 experienceItem.classList.add("experience-list-item")
                 experienceItem.innerHTML = `
-                    <h4>${exp.jobTitle || ''}</h4>
+                    <h3 class="editableHeader">${exp.jobTitle || ''}</h3>
                     <p>
                         <span class="preview-dates">
                             ${exp.startDate ? formatMonthYear(exp.startDate, language) : ''} 
@@ -120,7 +128,7 @@ export function updatePreview(data, dataURL) {
                         ${exp.startDate || exp.endDate || exp.currentJob ? ' | ' : ''} 
                         <strong>${exp.company || ''}</strong>
                     </p>
-                    <p>${formatText(exp.description || '')}</p>
+                    <p class="editableBody">${formatText(exp.description || '')}</p>
                 `
                 experienceList.appendChild(experienceItem)
                 addToPage(experienceItem)
@@ -131,8 +139,9 @@ export function updatePreview(data, dataURL) {
 
     // **Educación**
     if (data.education.length > 0) {
-        const educationHeader = document.createElement("h3")
+        const educationHeader = document.createElement("h2")
         educationHeader.classList.add("education-preview")
+        educationHeader.classList.add("editableHeader")
         educationHeader.textContent = "Education"
         addToPage(educationHeader)
 
@@ -144,7 +153,7 @@ export function updatePreview(data, dataURL) {
                 const educationItem = document.createElement("li")
                 educationItem.classList.add("education-list-item")
                 educationItem.innerHTML = `
-                    <h4>${edu.degree || ''}</h4>
+                    <h3 class="editableHeader">${edu.degree || ''}</h3>
                     <p>
                         <span class="preview-dates">
                             ${edu.startDate ? formatMonthYear(edu.startDate, language) : ''} 
@@ -155,7 +164,7 @@ export function updatePreview(data, dataURL) {
                         ${edu.startDate || edu.endDate || edu.currentStudy ? ' | ' : ''}  
                         <strong>${edu.institution || ''}</strong>
                     </p>
-                    <p>${formatText(edu.description || '')}</p>
+                    <p class="editableBody">${formatText(edu.description || '')}</p>
                 `
                 educationList.appendChild(educationItem)
                 addToPage(educationItem)

@@ -132,7 +132,7 @@ export function addExperienceField() {
 
         <label for="job-description[]">
             <span>Description</span>:
-            <textarea name="job-description[]" rows="4" class="textarea-preview"></textarea>
+            <textarea name="job-description[]" rows="8" class="textarea-preview"></textarea>
         </label>
     `
     experienceSection.appendChild(newExperience)
@@ -197,7 +197,7 @@ export function addEducationField() {
 
         <label for="edu-description[]">
             <span>Description</span>:
-            <textarea name="edu-description[]" rows="4" class="textarea-preview"></textarea>
+            <textarea name="edu-description[]" rows="8" class="textarea-preview"></textarea>
         </label>
     `
     educationSection.appendChild(newEducation)

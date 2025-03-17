@@ -91,7 +91,7 @@
                         <h2 class="professionalSummary-title">Professional Summary</h2>
 
                         <label for="summary"><span>Summary</span>:
-                            <textarea name="summary" rows="4"></textarea>
+                            <textarea name="summary" rows="8"></textarea>
                         </label>
                     </section>
 
@@ -129,7 +129,7 @@
 
                                 <label for="job-description[]">
                                     <span>Description</span>:
-                                    <textarea name="job-description[]" rows="4"></textarea>
+                                    <textarea name="job-description[]" rows="8"></textarea>
                                 </label>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
 
                                 <label for="edu-description[]">
                                     <span>Description</span>:
-                                    <textarea name="edu-description[]" rows="4"></textarea>
+                                    <textarea name="edu-description[]" rows="8"></textarea>
                                 </label>
                             </div>
                         </div>
@@ -198,6 +198,8 @@
                 </form>
             </aside>
 
+            <div class="resizer"></div>
+
             <main class="preview">
                 <div class="cv-preview-frame">
                     <section class="cv-preview-container">
@@ -220,9 +222,12 @@
         </div>
 
         <script src="node_modules/cropperjs/dist/cropper.js"></script>
+        <script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
         <script type="module" src="src/js/main.js"></script>
         <script type="module" src="src/js/formHandler.js"></script>
         <script type="module" src="src/js/imageHandler.js"></script>
+        <script type="module" src="src/js/resizer.js"></script>
+        <script type="module" src="src/js/tinymce.js"></script>
         <!-- <script src="js/pdfExporter.js"></script> -->
     </body>
 
